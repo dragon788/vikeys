@@ -1,9 +1,15 @@
 #!/usr/bin/env node
 var screenoptions = {};
-if(process.argv.length > 3) {
-  screenoptions.log = "/tmp/vikeys.log";
+//console.log(process.argv);
+if(process.argv.length > 1) {
+  screenoptions.log = "./vikeys.log";
   screenoptions.debug = true;
 }
+screenoptions.smartCSR= true;
+screenoptions.useBCE= true;
+screenoptions.forceUnicode= true;
+screenoptions.terminal = 'screen-256color';
+screenoptions.extended = true;
 var blessed = require('blessed');
 var screen = blessed.screen(screenoptions);
 var widgets = require('./lib/ui/widgets.js');
